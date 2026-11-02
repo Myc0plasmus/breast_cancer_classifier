@@ -7,8 +7,6 @@ def generate_artifacts():
 
     dirs = [
         "artifacts",
-        "artifacts/graphs",
-        "artifacts/tables",
         "artifacts/figures",
     ]
 
