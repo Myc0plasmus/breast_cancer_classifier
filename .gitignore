@@ -1,0 +1,12 @@
+# build artifacts
+
+/artifacts/
+__pycache__/
+.eggs/
+.mypy_cache
+*.egg-info/
+build/
+dist/
+pip-wheel-metadata/
+
+Session.vim
