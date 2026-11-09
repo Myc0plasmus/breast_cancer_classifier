@@ -15,7 +15,6 @@
 
         targetPkgs = _: [
           pkgs.micromamba
-          pkgs.jupyter
         ];
 
         profile = ''
