@@ -20,6 +20,10 @@
         profile = ''
           set -e
 
+          # Prevent host Qt configuration from interfering with Conda Qt
+          unset QT_PLUGIN_PATH
+          unset QT_QPA_PLATFORM_PLUGIN_PATH
+          unset QT_STYLE_OVERRIDE
           export MAMBA_ROOT_PREFIX=''${HOME}/.mamba
 
           # Check if the environment already exists

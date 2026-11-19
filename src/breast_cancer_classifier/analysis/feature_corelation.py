@@ -1,3 +1,6 @@
+import matplotlib
+matplotlib.use("QtAgg")
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -5,7 +8,7 @@ import seaborn as sns
 from breast_cancer_classifier.utils import get_figure_path
 
 
-def feature_corelation(df: pd.DataFrame) -> None:
+def feature_corelation(df: pd.DataFrame, show=False) -> None:
     corr_matrix = df.corr()
 
     plt.figure(figsize=(12, 8))
@@ -25,4 +28,7 @@ def feature_corelation(df: pd.DataFrame) -> None:
     plt.tight_layout()
 
     path = get_figure_path("feature_correlation.png")
-    plt.show() 
+    plt.savefig(path)
+
+    if show :
+        plt.show() 
