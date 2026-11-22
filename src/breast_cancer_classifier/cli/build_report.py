@@ -5,7 +5,7 @@ import pypandoc
 from breast_cancer_classifier.presentation import process_template
 
 
-def main() -> None:
+def build_report() -> None:
     template_path = Path.cwd() / "docs" / "templates" / "report-template.md"
     output_path = Path.cwd() / "docs" / "report-final.md"
     pdf_path = Path.cwd() / "docs" / "report-final.pdf"
@@ -39,4 +39,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    build_report()
