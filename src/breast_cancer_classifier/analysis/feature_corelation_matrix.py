@@ -1,4 +1,5 @@
 import matplotlib
+
 matplotlib.use("QtAgg")
 
 import pandas as pd
@@ -8,27 +9,27 @@ import seaborn as sns
 from breast_cancer_classifier.utils import get_figure_path
 
 
-def feature_corelation(df: pd.DataFrame, show=False) -> None:
+def feature_corelation_matrix(df: pd.DataFrame, show=False) -> None:
     corr_matrix = df.corr()
 
     plt.figure(figsize=(12, 8))
 
     sns.heatmap(
         corr_matrix,
-        annot=True,           # Display correlation values
-        cmap='coolwarm',      # Color palette
-        fmt='.2f',            # Two decimal places
+        annot=True,  # Display correlation values
+        cmap="coolwarm",  # Color palette
+        fmt=".2f",  # Two decimal places
         vmin=-1,
         vmax=1,
         center=0,
-        square=True
+        square=True,
     )
 
-    plt.title('Correlation Matrix Heatmap')
+    plt.title("Correlation Matrix Heatmap")
     plt.tight_layout()
 
     path = get_figure_path("feature_correlation.png")
     plt.savefig(path)
 
-    if show :
-        plt.show() 
+    if show:
+        plt.show()
