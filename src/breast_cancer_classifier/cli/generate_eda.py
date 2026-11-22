@@ -1,8 +1,9 @@
 import pandas as pd
 
-from breast_cancer_classifier.analysis import feature_corelation 
+from breast_cancer_classifier.analysis import feature_corelation
 
 from sklearn.datasets import load_breast_cancer
+
 
 def generate_data_analysis() -> None:
     dataset = load_breast_cancer(as_frame=True)
@@ -11,7 +12,6 @@ def generate_data_analysis() -> None:
 
     feature_corelation(df, show=True)
 
+
 if __name__ == "__main__":
     generate_data_analysis()
-
-
