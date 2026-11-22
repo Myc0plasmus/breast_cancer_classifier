@@ -2,7 +2,7 @@ from pathlib import Path
 from rich.console import Console
 import pypandoc
 
-from .process_template import process_template
+from breast_cancer_classifier.presentation import process_template
 
 
 def main() -> None:
