@@ -16,7 +16,7 @@ def generate_split_datasets() -> None:
     generate_data()
 
     for name, dataset in zip(dataset_names, split_raw_dataset()):
-        filename = f"{name}_dataset.csv"
+        filename = f"raw_{name}_dataset.csv"
         path = get_raw_path(filename)
         with console.status(f"[bold green]Saving {name} dataset to {path} ..."):
             dataset.to_csv(path)
