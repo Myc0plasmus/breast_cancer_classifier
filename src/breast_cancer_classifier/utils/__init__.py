@@ -3,6 +3,7 @@ from .generate_data import generate_data
 from .get_artifact_path import get_figure_path, get_tables_path
 from .get_data_path import get_raw_path
 from .dataset_loader import DatasetLoader
+from .cli_method import cli_method
 
 __all__ = [
     "generate_artifacts",
@@ -11,4 +12,5 @@ __all__ = [
     "get_tables_path",
     "get_raw_path",
     "DatasetLoader",
+    "cli_method",
 ]
