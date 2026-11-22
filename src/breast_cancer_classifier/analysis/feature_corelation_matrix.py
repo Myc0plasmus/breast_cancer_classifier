@@ -16,13 +16,16 @@ def feature_corelation_matrix(df: pd.DataFrame, show=False) -> None:
 
     sns.heatmap(
         corr_matrix,
-        annot=True,  # Display correlation values
-        cmap="coolwarm",  # Color palette
-        fmt=".2f",  # Two decimal places
+        annot=True,
+        cmap="coolwarm",
+        fmt=".2f",
         vmin=-1,
         vmax=1,
         center=0,
         square=True,
+        annot_kws={"size": 8, "ha": "center", "va": "center"},
+        linewidths=1,
+        linecolor="white",
     )
 
     plt.title("Correlation Matrix Heatmap")
