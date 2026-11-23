@@ -9,6 +9,8 @@ def generate_artifacts():
         "artifacts",
         "artifacts/figures",
         "artifacts/tables",
+        "artifacts/models",
+        "artifacts/models/random_forest",
     ]
 
     for directory in dirs:
