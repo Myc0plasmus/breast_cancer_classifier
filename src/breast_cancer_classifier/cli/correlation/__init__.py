@@ -3,6 +3,7 @@ from .generate_corr_box_plot import generate_corr_box_plot
 from .generate_target_corr_box_plot import generate_target_corr_box_plot
 from .generate_top_correlations import generate_top_correlations
 from .generate_target_corr_stats import generate_target_corr_stats
+from .generate_top_target_corr import generate_top_target_corr
 
 __all__ = [
     "generate_correlation_matrix",
@@ -10,4 +11,5 @@ __all__ = [
     "generate_target_corr_box_plot",
     "generate_top_correlations",
     "generate_target_corr_stats",
+    "generate_top_target_corr",
 ]

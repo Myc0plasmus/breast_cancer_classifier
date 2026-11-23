@@ -107,6 +107,23 @@ class CorrelationAnalysis:
 
         return correlations
 
+    def top_target_corr(self, cutoff=0.7) -> pd.DataFrame:
+        correlations = self.corr_matrix["target"].drop(index="target")
+
+        correlations = correlations[correlations.abs() >= cutoff]
+
+        correlations = correlations.reindex(
+            correlations.abs().sort_values(ascending=False).index
+        )
+
+        result = correlations.rename("correlation value").reset_index()
+        result.columns = ["feature", "correlation value"]
+
+        path = get_tables_path("top_target_corr_values.csv")
+        result.to_csv(path, index=False)
+
+        return result
+
     def target_box_plot(self, show=False) -> None:
         target_correlations = self.corr_matrix["target"].drop("target")
 
@@ -133,8 +150,13 @@ class CorrelationAnalysis:
 
         statistics = pd.DataFrame(
             {
-                "statistic": ["mean", "standard deviation"],
-                "value": [target_correlations.mean(), target_correlations.std()],
+                "statistic": ["mean", "standard deviation", "min", "max"],
+                "value": [
+                    target_correlations.mean(),
+                    target_correlations.std(),
+                    target_correlations.min(),
+                    target_correlations.max(),
+                ],
             }
         )
 
