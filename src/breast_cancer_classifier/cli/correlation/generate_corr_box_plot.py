@@ -6,7 +6,7 @@ def generate_corr_box_plot(
     correlation_analysis: CorrelationAnalysis, show: bool = True
 ):
     correlation_box_plot_cli = cli_method(
-        correlation_analysis.box_plot, "Calculating feature correlation matrix"
+        correlation_analysis.box_plot, "Calculating feature correlation box-plot"
     )
     correlation_box_plot_cli(show=show)
 
