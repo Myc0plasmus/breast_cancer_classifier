@@ -1,6 +1,6 @@
 import re
 
-from .get_source import get_source
+from .utils import get_source
 
 MARKER_PATTERN = re.compile(r"{{([a-zA-Z_][\w.]*)}}")
 
