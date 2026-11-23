@@ -24,7 +24,7 @@ class CorrelationAnalysis:
 
         sns.heatmap(
             self.corr_matrix,
-            annot=True,
+            annot=False,
             cmap="coolwarm",
             fmt=".2f",
             vmin=-1,
