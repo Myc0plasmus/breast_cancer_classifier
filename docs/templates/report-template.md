@@ -8,11 +8,11 @@ Natan|Jabłoński|155621
 ## Analiza korelacji
 Poniższa sekcja przedstawia analizę korelacji na rekordach z surowych danych ze zbioru treningowego i walidacyjnego.
 
-### Kod źródłowy
-Poniższa analiza została wykonana za pomocą poniższego kodu źródłowego
-```python
-{{breast_cancer_classifier.analysis.correlation_analysis}}
-```
+<!-- ### Kod źródłowy -->
+<!-- Poniższa analiza została wykonana za pomocą poniższego kodu źródłowego -->
+<!-- ```python -->
+<!-- {{breast_cancer_classifier.analysis.correlation_analysis}} -->
+<!-- ``` -->
 
 ### Macierz korelacji
 
@@ -29,7 +29,7 @@ Poniższa analiza została wykonana za pomocą poniższego kodu źródłowego
 
 ### Największe wartości korelacji
 
-{{table artifacts/tables/top_correlation_values.csv}}
+{{table artifacts/tables/top_target_corr_values.csv}}
 
 ### Statystyki wartości korelacji do targetu
 
