@@ -4,6 +4,7 @@ from .get_artifact_path import get_figure_path, get_tables_path
 from .get_data_path import get_raw_path
 from .dataset_loader import DatasetLoader
 from .cli_method import cli_method
+from .load_raw_train_eval import load_raw_train_eval
 
 __all__ = [
     "generate_artifacts",
@@ -13,4 +14,5 @@ __all__ = [
     "get_raw_path",
     "DatasetLoader",
     "cli_method",
+    "load_raw_train_eval",
 ]
