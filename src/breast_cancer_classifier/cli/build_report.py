@@ -2,10 +2,10 @@ from pathlib import Path
 from rich.console import Console
 import pypandoc
 
-from .process_template import process_template
+from breast_cancer_classifier.presentation import insert_code_snippets, insert_tables
 
 
-def main() -> None:
+def build_report() -> None:
     template_path = Path.cwd() / "docs" / "templates" / "report-template.md"
     output_path = Path.cwd() / "docs" / "report-final.md"
     pdf_path = Path.cwd() / "docs" / "report-final.pdf"
@@ -17,8 +17,12 @@ def main() -> None:
     console.print("Acquiring template: [green]completed")
 
     with console.status("[bold green]Inserting code snippets..."):
-        result = process_template(template)
-    console.print("Inseting code snippeks: [green]completed")
+        result = insert_code_snippets(template)
+    console.print("Inseting code snippets: [green]completed")
+
+    with console.status("[bold green]Inserting tables..."):
+        result = insert_tables(result)
+    console.print("Inseting tables: [green]completed")
 
     with console.status("[bold green]Writing final report..."):
         output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -39,4 +43,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    build_report()
