@@ -15,10 +15,6 @@ def generate_eda() -> None:
 
     generate_corr_box_plot(correlation_analysis)
 
-    with console.status("[bold green]Calculating target correlation boxplot..."):
-        correlation_analysis.target_box_plot(show=True)
-    console.print("Calculating feature correlation target: [green]completed")
-
     with console.status("[bold green]Calculating parameters with top correlations..."):
         correlation_analysis.top_correlations()
     console.print("Calculating parameters with top correlations: [green]completed")
