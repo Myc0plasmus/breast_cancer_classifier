@@ -48,7 +48,7 @@ class RandomForestWrapped:
         model.fit(X_train, y_train)
         self.model = model
 
-    def eval(self, X_test):
+    def predict(self, X_test):
         if self.model is None:
             raise ValueError(
                 "Model has to be either loaded or trained before evaluation"
