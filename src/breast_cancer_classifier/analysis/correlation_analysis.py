@@ -9,7 +9,6 @@ import seaborn as sns
 from breast_cancer_classifier.utils import (
     get_figure_path,
     get_tables_path,
-    generate_artifacts,
 )
 
 
@@ -17,7 +16,6 @@ class CorrelationAnalysis:
     def __init__(self, df: pd.DataFrame):
         self.corr_matrix = df.corr()
         self.df = df
-        generate_artifacts()
 
     def matrix(self, show=False) -> None:
         plt.figure(figsize=(12, 8))
