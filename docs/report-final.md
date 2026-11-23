@@ -3,6 +3,9 @@ Imię|Nazwisko|nr. indeksu
 -|-|-
 Natan|Jabłoński|155621
 
+# Kod źródłowy:
+Kod źródłowy jest dostępny na [githubie](https://github.com/Myc0plasmus/breast_cancer_classifier).
+
 # Analiza eksploracyjna
 
 ## Analiza korelacji
