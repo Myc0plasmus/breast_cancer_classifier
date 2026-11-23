@@ -2,7 +2,7 @@ from pathlib import Path
 from rich.console import Console
 import pypandoc
 
-from breast_cancer_classifier.presentation import insert_code_snippets
+from breast_cancer_classifier.presentation import insert_code_snippets, insert_tables
 
 
 def build_report() -> None:
@@ -18,7 +18,11 @@ def build_report() -> None:
 
     with console.status("[bold green]Inserting code snippets..."):
         result = insert_code_snippets(template)
-    console.print("Inseting code snippeks: [green]completed")
+    console.print("Inseting code snippets: [green]completed")
+
+    with console.status("[bold green]Inserting tables..."):
+        result = insert_tables(result)
+    console.print("Inseting tables: [green]completed")
 
     with console.status("[bold green]Writing final report..."):
         output_path.parent.mkdir(parents=True, exist_ok=True)
