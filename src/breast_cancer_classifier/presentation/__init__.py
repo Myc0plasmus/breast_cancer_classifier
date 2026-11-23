@@ -1,7 +1,7 @@
 from .get_source import get_source
-from .process_template import process_template
+from .insert_code_snippets import insert_code_snippets
 
 __all__ = [
     "get_source",
-    "process_template",
+    "insert_code_snippets",
 ]
