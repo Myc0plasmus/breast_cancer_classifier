@@ -5,6 +5,7 @@ from .correlation import (
     generate_corr_box_plot,
     generate_target_corr_box_plot,
     generate_top_correlations,
+    generate_target_corr_stats,
 )
 
 
@@ -20,6 +21,8 @@ def generate_eda() -> None:
     generate_target_corr_box_plot(correlation_analysis)
 
     generate_top_correlations(correlation_analysis)
+
+    generate_target_corr_stats(correlation_analysis)
 
 
 if __name__ == "__main__":
