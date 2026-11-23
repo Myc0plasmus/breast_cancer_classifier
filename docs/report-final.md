@@ -22,7 +22,6 @@ import seaborn as sns
 from breast_cancer_classifier.utils import (
     get_figure_path,
     get_tables_path,
-    generate_artifacts,
 )
 
 
@@ -30,7 +29,6 @@ class CorrelationAnalysis:
     def __init__(self, df: pd.DataFrame):
         self.corr_matrix = df.corr()
         self.df = df
-        generate_artifacts()
 
     def matrix(self, show=False) -> None:
         plt.figure(figsize=(12, 8))
@@ -164,7 +162,12 @@ class CorrelationAnalysis:
         statistics = pd.DataFrame(
             {
                 "statistic": ["mean", "standard deviation", "min", "max"],
-                "value": [target_correlations.mean(), target_correlations.std(), target_correlations.min(), target_correlations.max()],
+                "value": [
+                    target_correlations.mean(),
+                    target_correlations.std(),
+                    target_correlations.min(),
+                    target_correlations.max(),
+                ],
             }
         )
 
@@ -184,11 +187,15 @@ class CorrelationAnalysis:
 
 ![](artifacts/figures/correlation_box_plot.png)
 
+Korelacja cech do targetu jest głównie ujemna, aczkolwiek dla paru cech jest wysoka. Mimo to przez fakt, że target jest binarny to lepiej uważać z poleganiem na korelacji do targetu pod kątem dobierania cech.
+
 ### Wykres pudełkowy wartości korelacji do targetu
 
 ![](artifacts/figures/target_correlation_box_plot.png)
 
-### Największe wartości korelacji
+Brak dużej ilość wartości odstających
+
+### Największe wartości korelacji do targetu
 
 | feature | correlation value |
 | --- | --- |
@@ -209,6 +216,52 @@ class CorrelationAnalysis:
 | standard deviation | 0.29860218709333536 |
 | min | -0.7991281963528148 |
 | max | 0.2843530087799683 |
+
+Te wartości pokazują że można w miarę zaufać temu, że wysoka korelacja do niektórych cech.
+
+# Wyniki modelu
+
+## Random Forest
+
+### Ewaluacja datasetu treningowego
+|  | Metric | Value |
+| --- | --- | --- |
+| 0 | Accuracy | 1.0 |
+| 1 | Precision | 1.0 |
+| 2 | Recall | 1.0 |
+| 3 | F1 Score | 1.0 |
+
+### Ewaluacja datasetu ewalucyjnego
+|  | Metric | Value |
+| --- | --- | --- |
+| 0 | Accuracy | 0.9824561403508771 |
+| 1 | Precision | 0.9829302987197724 |
+| 2 | Recall | 0.9824561403508771 |
+| 3 | F1 Score | 0.9823623542652152 |
+
+### Ewaluacja datasetu testowego
+|  | Metric | Value |
+| --- | --- | --- |
+| 0 | Accuracy | 0.9298245614035088 |
+| 1 | Precision | 0.9298245614035088 |
+| 2 | Recall | 0.9298245614035088 |
+| 3 | F1 Score | 0.9298245614035088 |
+
+### Wyniki ewaluacji-krzyżowej
+Do ewaluacji wykorzystanie stratified K-fold z k=20:
+
+|  | Metric | Mean | STD |
+| --- | --- | --- | --- |
+| 0 | Accuracy | 0.9629446640316205 | 0.042978360902614796 |
+| 1 | Precision | 0.9655401995347648 | 0.040548783743800845 |
+| 2 | Recall | 0.9629446640316205 | 0.042978360902614796 |
+| 3 | F1 | 0.9630330397459869 | 0.04263517076389311 |
+
+### Krzywa uczenia
+
+![](artifacts/figures/my_random_forest_learning_curve.png)
+
+
 
 
 <!-- ## UMAP -->
